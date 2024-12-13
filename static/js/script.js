@@ -5,7 +5,6 @@ async function generatePitch() {
     const response = await fetch('/generate_pitch');
     const data = await response.json();
     correctPitch = data.pitch;
-    document.getElementById('question').innerText = `Identify this pitch: ${correctPitch}`;
     document.getElementById('result').innerText = ""; // Clear previous result
 }
 
