@@ -43,5 +43,10 @@ input {
 
 input:focus {
     border: 2px solid #6200ea;
-    
+}
+
+#volume-slider {
+    overflow: hidden;
+    padding: 0;
+    width: 200px;
 }
