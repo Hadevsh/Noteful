@@ -16,7 +16,7 @@ def home():
 @app.route('/generate_pitch', methods=['GET'])
 def generate_pitch():
     pitch = random.choice(PITCHES)
-    playsound(f"static/audio/piano-mp3/{pitch}.mp3")
+    playsound(f"static/audio/piano-keys/{pitch}.wav")
     return jsonify({"pitch": pitch})
 
 # Endpoint to check user input against the correct pitch
