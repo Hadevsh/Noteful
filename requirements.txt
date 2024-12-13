@@ -1,2 +1,6 @@
 flask
 playsound==1.2.2
+mido
+numpy
+librosa
+soundfile
