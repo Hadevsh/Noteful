@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import random
+from playsound import playsound
 
 app = Flask(__name__)
 
@@ -15,6 +16,7 @@ def home():
 @app.route('/generate_pitch', methods=['GET'])
 def generate_pitch():
     pitch = random.choice(PITCHES)
+    playsound(f"static/audio/piano-mp3/{pitch}.mp3")
     return jsonify({"pitch": pitch})
 
 # Endpoint to check user input against the correct pitch
