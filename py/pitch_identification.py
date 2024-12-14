@@ -1,8 +1,5 @@
 from flask import Blueprint, render_template, request, jsonify
 import random
-import pygame
-
-pygame.mixer.init()
 
 # Define the blueprint
 pitch_identification_bp = Blueprint('pitch_identification', __name__, template_folder='../templates')
@@ -20,16 +17,9 @@ def pitch_identification():
 @pitch_identification_bp.route('/generate_pitch', methods=['POST'])
 def generate_pitch():
     data = request.get_json()
-    volume = float(data.get('volume', 1.0))
-    pygame.mixer.music.set_volume(volume)
-
     pitch = random.choice(PITCHES)
     sound_path = f"static/audio/piano-keys/{pitch}.wav"
-
-    pygame.mixer.music.load(sound_path)
-    pygame.mixer.music.play()
-
-    return jsonify({"pitch": pitch})
+    return jsonify({"pitch": pitch, "sound_path": sound_path})
 
 # Endpoint to check user input against the correct pitch
 @pitch_identification_bp.route('/check_pitch', methods=['POST'])

@@ -4,4 +4,3 @@ mido
 numpy
 librosa
 soundfile
-pygame

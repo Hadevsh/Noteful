@@ -11,17 +11,26 @@ document.getElementById('volume-slider').addEventListener('input', function() {
 async function generatePitch() {
     const volume = document.getElementById('volume-slider').value; // Get the current volume from the slider
 
-    // Send the pitch and volume data to the backend
+    // Fetch pitch and audio file from the backend
     const response = await fetch('/generate_pitch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ volume: volume })
+        body: JSON.stringify({ volume: volume }),
     });
-    
-    // Handle the response from the backend
+
+    // Parse the response
     const data = await response.json();
     correctPitch = data.pitch;
-    document.getElementById('result').innerText = ""; // Clear previous result
+    const soundPath = data.sound_path;
+    console.log(soundPath);
+
+    // Clear previous result
+    document.getElementById('result').innerText = "";
+
+    // Play the audio and visualize its frequencies
+    const audio = new Audio(soundPath.replace('#', 'sharp'));  // Rename the sharp notes for compatibility
+    audio.volume = volume; // Adjust volume based on slider
+    audio.play();
 }
 
 // Submit the user's guess
