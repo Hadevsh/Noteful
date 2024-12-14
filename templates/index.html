@@ -3,34 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noteful</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Noteful - Home</title>
+    <link rel="stylesheet" href="/static/css/style.css"> <!-- Base styling -->
+    <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-    <h1>🎵 Piano: Pitch Identification</h1>
-    <div id="exercise">
-        <p>Press "Start" to generate a pitch!</p>
-        <button onclick="generatePitch()">Start</button>
-        <label for="pitch">Your Answer:</label>
-        <input class="answerInput" type="text" id="pitch" placeholder="e.g., C4">
-        <button onclick="submitPitch()">Submit</button>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/pitch_identification">Pitch Identification</a>
     </div>
-    <p id="result"></p>
 
-    <!-- Piano keys image -->
-    <img class="pianoKeys" src="./static/images/piano-keys.png"><br>
-
-    <!-- Keys to choose from -->
-    <div style="margin: 20px; margin-top: -10px;">
-        <p>Choose from:</p>
-        <p style="margin: -10px;" id="keysChoose"></p>
+    <h1 class="welcome">🎵 Welcome to Noteful</h1>
+    <div class="pagesList">
+        <p>Choose from our music practice tools:</p>
+        <a href="/pitch_identification">Pitch Identification</a>
     </div>
-    
-    <!-- Volume control -->
-    <input value="0.5" type="range" id="volume-slider" min="0" max="1" step="0.01"><br>
-    <label for="volume-slider">Volume: </label> 
-    <span id="volume-display">50%</span>
-
-    <script src="/static/js/script.js"></script>
 </body>
 </html>

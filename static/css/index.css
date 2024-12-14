@@ -1,0 +1,45 @@
+.topnav {
+    background-color: #333;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    background-color: #333;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.5s;
+}
+
+.topnav a:hover {
+    background-color: #6e14ec;
+}
+
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.welcome {
+    font-size: 72px;
+}
+
+.pagesList p {
+    font-size: 25px;
+}
+
+.pagesList a {
+    text-decoration: none;
+    color: #b8b8b8;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.pagesList a:hover {
+    color: #a362ff;
+}
