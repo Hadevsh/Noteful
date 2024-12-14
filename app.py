@@ -8,7 +8,8 @@ pygame.mixer.init()
 app = Flask(__name__)
 
 # Available pitches for practice
-PITCHES = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"]
+PITCHES = ["C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", 
+           "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5"]
 
 # Route to serve the frontend
 @app.route('/')
