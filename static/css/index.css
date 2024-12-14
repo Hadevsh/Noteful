@@ -25,8 +25,11 @@
     color: white;
 }
 
-.welcome {
-    font-size: 72px;
+.logo {
+    width: 400px;
+    height: auto;
+    margin-bottom: -50px;
+    padding: 0;
 }
 
 .pagesList p {
