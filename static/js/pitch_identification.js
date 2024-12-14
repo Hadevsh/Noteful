@@ -161,10 +161,17 @@ async function submitPitch() {
         body: JSON.stringify({ pitch: userPitch, correct_pitch: correctPitch })
     });
     const result = await response.json();
-    document.getElementById('result').innerText = result.is_correct
-        ? "Correct! 🎉"
-        : `Incorrect. The correct pitch was ${correctPitch}.`;
+    document.getElementById('result').innerHTML = result.is_correct
+        ? `<span style="color: #69e95e">Correct!</span> 🎉`
+        : `<span style="color: ##ff4f4f">Incorrect</span>. The correct pitch was <span style="color: #a362ff">${correctPitch}</span>.`;
 }
+
+const ansInput = document.getElementsByClassName("answerInput")[0];
+ansInput.addEventListener("keyup", ({key}) => {
+    if (key === "Enter") {
+        submitPitch();
+    }
+})
 
 // Display keys to choose from
 async function keysChoose() {
