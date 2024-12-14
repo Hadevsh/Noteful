@@ -37,3 +37,31 @@ async function submitPitch() {
         ? "Correct! 🎉"
         : `Incorrect. The correct pitch was ${correctPitch}.`;
 }
+
+// Display keys to choose from
+async function keysChoose() {
+    const response = await fetch('/get_keys');
+    const data = await response.json();
+    const keys = data.keys;
+
+    // Group keys by their octave
+    const groupedKeys = keys.reduce((acc, key) => {
+        const octave = key.slice(-1); // Get the last character (octave)
+        if (!acc[octave]) {
+            acc[octave] = [];
+        }
+        acc[octave].push(key);
+        return acc;
+    }, {});
+
+    // Create the HTML content with new lines for each octave
+    const keysDisplay = Object.values(groupedKeys)
+        .map(octaveKeys => octaveKeys.join(', '))
+        .join('<br>');
+
+    // Display the grouped keys in the 'keysChoose' element
+    document.getElementById('keysChoose').innerHTML = keysDisplay;
+}
+
+// Call the function to display the keys when the page loads
+document.addEventListener('DOMContentLoaded', keysChoose);

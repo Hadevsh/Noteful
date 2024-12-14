@@ -41,5 +41,10 @@ def check_pitch():
     is_correct = user_pitch == correct_pitch
     return jsonify({"is_correct": is_correct})
 
+# Endpoint to display keys to choose from
+@app.route('/get_keys', methods=['GET'])
+def get_keys():
+    return jsonify({"keys": PITCHES})
+
 if __name__ == '__main__':
     app.run(debug=True)
