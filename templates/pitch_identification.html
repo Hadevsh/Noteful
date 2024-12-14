@@ -9,14 +9,15 @@
 </head>
 <body>
     <h1>🎵 Piano: Pitch Identification</h1>
+
     <div id="exercise">
-        <p>Press "Start" to generate a pitch!</p>
+        <p></p>
         <button onclick="generatePitch()">Start</button>
         <label for="pitch">Your Answer:</label>
         <input class="answerInput" type="text" id="pitch" placeholder="e.g., C4">
         <button onclick="submitPitch()">Submit</button>
     </div>
-    <p id="result"></p>
+    <p id="result">Press "Start" to generate a pitch!</p>
 
     <!-- Piano keys image -->
     <img class="pianoKeys" src="./static/images/piano-keys.png"><br>
@@ -30,7 +31,13 @@
     <!-- Volume control -->
     <input value="0.5" type="range" id="volume-slider" min="0" max="1" step="0.01"><br>
     <label for="volume-slider">Volume: </label> 
-    <span id="volume-display">50%</span>
+    <span id="volume-display">50%</span><br>
+
+    <!-- Canvas for the frequency visualizer chart -->
+    <div class="visualizer">
+        <canvas id="visualizer" width="800" height="300"></canvas>
+        <p>Frequency Visualization</p>
+    </div>
 
     <script src="/static/js/pitch_identification.js"></script>
 </body>
