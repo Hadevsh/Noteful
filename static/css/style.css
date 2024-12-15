@@ -17,9 +17,3 @@ h1 {
 hr {
     border-color: #8f8f8f;
 }
-
-#visualizer {
-    border: 1px dashed #575757;
-    border-radius: 2px;
-    margin-top: 20px;
-}
