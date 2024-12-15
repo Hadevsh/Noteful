@@ -129,7 +129,7 @@ function visualizeFrequencies(audio) {
             const barHeight = dataArray[i] / 255 * (HEIGHT - 30); // Scale height minus reserved scale area
     
             // Color scheme: Violet and blue tones
-            const r = Math.min(163 + (barHeight / HEIGHT) * 40, 90);
+            const r = Math.min(163 + (barHeight / HEIGHT) * 40, 150);
             const g = Math.max(50 - (barHeight / HEIGHT) * 30, 0);
             const b = Math.min(200, 200 + (barHeight / HEIGHT) * 65);
     

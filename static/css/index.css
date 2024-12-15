@@ -49,3 +49,57 @@
 .pagesList a:hover {
     color: #a362ff;
 }
+
+/* Interactive piano */
+#piano {
+    display: flex;
+    position: relative;
+    height: auto;
+    margin: 20px auto;
+    width: 700px;
+    border-radius: 15px;
+    background-color: #222;
+}
+
+.white-key {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #272727;
+    color: #272727;
+    border-radius: 0 0 15px 15px;
+    line-height: 170px;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: 0.5s;
+}
+
+.black-key {
+    position: absolute;
+    background: #272727;
+    border-radius: 0 0 15px 15px;
+    width: 40px;
+    height: 120px;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.white-key:hover {
+    background: #d8d8d8;
+}
+
+.black-key:hover {
+    background: #464646;
+}
+
+/* Position black keys */
+.black-key:nth-child(2) { left: 68px; }
+.black-key:nth-child(4) { left: 155px; }
+.black-key:nth-child(7) { left: 330px; }
+.black-key:nth-child(9) { left: 418px; }
+.black-key:nth-child(11) { left: 506px; }
