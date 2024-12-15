@@ -166,12 +166,20 @@ async function submitPitch() {
         : `<span style="color: ##ff4f4f">Incorrect</span>. The correct pitch was <span style="color: #a362ff">${correctPitch}</span>.`;
 }
 
+// Submit the answer using the Enter key
 const ansInput = document.getElementsByClassName("answerInput")[0];
 ansInput.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
         submitPitch();
     }
 })
+
+// Event listener for the Spacebar key
+document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") { // Check if the pressed key is Spacebar
+        generatePitch();
+    }
+});
 
 // Display keys to choose from
 async function keysChoose() {
