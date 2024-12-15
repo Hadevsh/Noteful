@@ -114,13 +114,12 @@ function visualizeFrequencies(audio) {
         ctx.fillStyle = "#272727";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
     
-        let x = 0;
+        let previousX = null; // Store previous bar's X position
+        let previousY = null; // Store previous bar's top position
+    
         for (let i = 0; i < bufferLength; i++) {
             // Calculate the actual frequency corresponding to this bin
             const frequency = (i / bufferLength) * (audioContext.sampleRate / 2);
-    
-            // Convert the frequency to a logarithmic scale
-            const logFrequency = Math.log10(frequency);
     
             // Only visualize frequencies within the desired range (20Hz - 10kHz)
             if (frequency < 20 || frequency > 10000) continue;
@@ -136,13 +135,28 @@ function visualizeFrequencies(audio) {
             // Calculate X position based on frequency (logarithmic scaling)
             const logMinFreq = Math.log10(20);   // Minimum frequency (20Hz)
             const logMaxFreq = Math.log10(10000); // Maximum frequency (10kHz)
+            const logFrequency = Math.log10(frequency);
             const normalizedPosition = (logFrequency - logMinFreq) / (logMaxFreq - logMinFreq);
             const posX = normalizedPosition * WIDTH;
     
+            // Draw the bar
             ctx.fillStyle = `rgb(${r},${g},${b})`;
             ctx.fillRect(posX, HEIGHT - barHeight - 30, barWidth, barHeight);
     
-            x += barWidth + 1;
+            // Draw connecting lines between the tops of adjacent bars
+            const topY = HEIGHT - barHeight - 30; // Top position of the current bar
+            if (previousX !== null && previousY !== null) {
+                ctx.beginPath();
+                ctx.moveTo(previousX + barWidth / 2, previousY); // Center of the previous bar's top
+                ctx.lineTo(posX + barWidth / 2, topY); // Center of the current bar's top
+                ctx.strokeStyle = "#751fee"; // Light blue line
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+    
+            // Update previous positions for the next bar
+            previousX = posX;
+            previousY = topY;
         }
     
         // Draw the frequency scale after rendering the bars
