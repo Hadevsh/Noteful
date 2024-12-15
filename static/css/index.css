@@ -57,8 +57,10 @@
     height: auto;
     margin: 20px auto;
     width: 700px;
-    border-radius: 15px;
-    background-color: #222;
+    border-radius: 5px 5px 15px 15px;
+    background-color: #272727;
+    padding: 10px;
+    border: 1px solid #8f8f8f;
 }
 
 .white-key {
