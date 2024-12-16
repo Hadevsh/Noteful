@@ -14,7 +14,7 @@ button:hover {
     background-color: #3700b3;
 }
 
-.answerInput {
+.answer-input {
     padding: 10px;
     margin: 10px;
     border: 2px solid #ccc;
@@ -25,7 +25,7 @@ button:hover {
     transition: 1s;
 }
 
-.answerInput:focus {
+.answer-input:focus {
     border: 2px solid #6200ea;
 }
 
@@ -65,4 +65,12 @@ button:hover {
     border-radius: 15px;
     margin-top: 20px;
     padding: 10px;
+}
+
+#sound-select {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Vertically align items in the center */
+    justify-content: center; /* Horizontally center the content */
+    gap: 10px; /* Space between label and dropdown */
+    margin: 20px; /* Reset margin */
 }

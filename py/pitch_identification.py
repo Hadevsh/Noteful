@@ -8,17 +8,21 @@ pitch_identification_bp = Blueprint('pitch_identification', __name__, template_f
 PITCHES = ["C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", 
            "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5"]
 
+# Avaiable instruments / sounds
+INSTRUMENTS = ["piano-keys", "sine-bell", "synth-lead", "synth-pluck", "synth-string"]
+
 # Route for the pitch identification page
 @pitch_identification_bp.route('/pitch_identification')
 def pitch_identification():
     return render_template('pitch_identification.html')
 
-# Endpoint to generate a random pitch
+# Endpoint to generate a random pitch with the selected instrument
 @pitch_identification_bp.route('/generate_pitch', methods=['POST'])
 def generate_pitch():
     data = request.get_json()
     pitch = random.choice(PITCHES)
-    sound_path = f"static/audio/piano-keys/{pitch}.wav"
+    instrument = data.get('instrument', INSTRUMENTS[0])  # Default to the first instrument
+    sound_path = f"static/audio/{instrument}/{pitch}.wav"
     return jsonify({"pitch": pitch, "sound_path": sound_path})
 
 # Endpoint to check user input against the correct pitch
@@ -33,3 +37,8 @@ def check_pitch():
 @pitch_identification_bp.route('/get_keys', methods=['GET'])
 def get_keys():
     return jsonify({"keys": PITCHES})
+
+# Endpoint to fetch available instruments
+@pitch_identification_bp.route('/get_instruments', methods=['GET'])
+def get_instruments():
+    return jsonify({"instruments": INSTRUMENTS})

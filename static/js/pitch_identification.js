@@ -11,26 +11,22 @@ document.getElementById('volume-slider').addEventListener('input', function () {
 
 // Generate a random pitch
 async function generatePitch() {
-    const volume = document.getElementById('volume-slider').value; // Get the current volume from the slider
+    const volume = document.getElementById('volume-slider').value; // Get the current volume
 
-    // Fetch pitch and audio file from the backend
     const response = await fetch('/generate_pitch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ volume: volume }),
+        body: JSON.stringify({ volume: volume, instrument: selectedInstrument }), // Send selected instrument
     });
 
-    // Parse the response
     const data = await response.json();
     correctPitch = data.pitch;
-    const soundPath = data.sound_path.replace('#', 'sharp'); // Rename the sharp notes for compatibility
+    const soundPath = data.sound_path.replace('#', 'sharp');
 
-    // Reset previous result
+    // Reset result and play the sound
     document.getElementById('result').innerText = "Press \"Start\" to generate a pitch!";
-
-    // Play the audio and visualize its frequencies
     const audio = new Audio(soundPath);
-    audio.volume = volume; // Adjust volume based on slider
+    audio.volume = volume;
     audio.play();
 
     visualizeFrequencies(audio);
@@ -181,7 +177,7 @@ async function submitPitch() {
 }
 
 // Submit the answer using the Enter key
-const ansInput = document.getElementsByClassName("answerInput")[0];
+const ansInput = document.getElementsByClassName("answer-input")[0];
 ansInput.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
         submitPitch();
@@ -222,3 +218,41 @@ async function keysChoose() {
 
 // Call the function to display the keys when the page loads
 document.addEventListener('DOMContentLoaded', keysChoose);
+
+// Function to capitialize each letter in a new word
+function capitalizeAsTitle(val) {
+    let final = "";
+    let arr = val.split(" ");
+    for (word of arr) {
+        final += String(word).charAt(0).toUpperCase() + String(word).slice(1) + " ";
+    }
+    return final.substring(0, final.length - 1);
+}
+
+// Sound selection
+let selectedInstrument = "piano-keys"; // Default instrument
+
+// Fetch and display the available instruments
+async function fetchInstruments() {
+    const response = await fetch('/get_instruments'); // New backend endpoint
+    const data = await response.json();
+    const instrumentSelect = document.getElementById("instrument");
+
+    // Populate the dropdown menu
+    instrumentSelect.innerHTML = "";
+    data.instruments.forEach(instrument => {
+        const option = document.createElement("option");
+        option.value = instrument;
+        option.textContent = capitalizeAsTitle(instrument.replace("-", " ")); // Format text
+        instrumentSelect.appendChild(option);
+    });
+    selectedInstrument = data.instruments[0]; // Set default instrument
+}
+
+// Update the selected instrument when dropdown changes
+function updateInstrument() {
+    selectedInstrument = document.getElementById("instrument").value;
+}
+
+// Fetch instruments on page load
+document.addEventListener('DOMContentLoaded', fetchInstruments);
