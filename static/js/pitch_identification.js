@@ -48,7 +48,7 @@ function visualizeFrequencies(audio) {
     src.connect(analyser);
     analyser.connect(audioContext.destination);
 
-    analyser.fftSize = 2048;
+    analyser.fftSize = 2048/2;
 
     const bufferLength = analyser.frequencyBinCount; // Half of fftSize
     const dataArray = new Uint8Array(bufferLength);
@@ -149,7 +149,7 @@ function visualizeFrequencies(audio) {
                 ctx.beginPath();
                 ctx.moveTo(previousX + barWidth / 2, previousY); // Center of the previous bar's top
                 ctx.lineTo(posX + barWidth / 2, topY); // Center of the current bar's top
-                ctx.strokeStyle = "#751fee"; // Light blue line
+                ctx.strokeStyle = "#751fee";
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }

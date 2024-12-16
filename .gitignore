@@ -169,4 +169,4 @@ cython_debug/
 
 # Project files
 static/audio/
-static/images/
+static/images/psd
