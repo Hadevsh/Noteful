@@ -109,15 +109,15 @@
 
 /* Footer */
 .footer {
-    display: flex; /* Flexbox layout */
-    align-items: center; /* Vertically align items in the center */
-    justify-content: center; /* Horizontally center the content */
-    gap: 10px; /* Space between label and dropdown */
-    margin: 20px; /* Reset margin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
 }
 
 .footer .name {
-    margin-top: -30px;
+    margin-top: -15px;
     padding: 0;
 }
 
