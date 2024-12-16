@@ -106,3 +106,36 @@
 .black-key:nth-child(7) { left: 330px; }
 .black-key:nth-child(9) { left: 418px; }
 .black-key:nth-child(11) { left: 506px; }
+
+/* Footer */
+.footer {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Vertically align items in the center */
+    justify-content: center; /* Horizontally center the content */
+    gap: 10px; /* Space between label and dropdown */
+    margin: 20px; /* Reset margin */
+}
+
+.footer .name {
+    margin-top: -30px;
+    padding: 0;
+}
+
+.footer .logo img {
+    width: 100px;
+    height: auto;
+    border-radius: 30%;
+    border: 2px solid #8f8f8f;
+}
+
+.footer a {
+    color: #8f8f8f;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.5s;
+}
+
+.footer a:hover {
+    color: #a362ff;
+}
