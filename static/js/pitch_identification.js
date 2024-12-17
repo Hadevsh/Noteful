@@ -1,6 +1,20 @@
 let correctPitch = null;
 let audioContext = null; // Declare globally to avoid multiple instances
 let analyser = null;
+let currentScore = 1000;
+
+// Update the score display
+async function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById('score');
+    scoreDisplay.textContent = `Score: ${currentScore}`;
+
+    // Save the updated score
+    await fetch('/save_score', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ score: currentScore })
+    });
+}
 
 // Update the volume display based on the slider value
 document.getElementById('volume-slider').addEventListener('input', function () {
@@ -22,6 +36,9 @@ async function generatePitch() {
     const data = await response.json();
     correctPitch = data.pitch;
     const soundPath = data.sound_path.replace('#', 'sharp');
+
+    currentScore -= 10; // Deduct 10 points for generating a new sound
+    updateScoreDisplay(); // Update the score display
 
     // Reset result and play the sound
     document.getElementById('result').innerText = "Press \"Start\" to generate a pitch!";
@@ -171,6 +188,14 @@ async function submitPitch() {
         body: JSON.stringify({ pitch: userPitch, correct_pitch: correctPitch })
     });
     const result = await response.json();
+
+    if (result.is_correct) {
+        currentScore += 50; // Add 50 points for a correct guess
+    } else {
+        currentScore -= 60; // Deduct 60 points for an incorrect guess
+    }
+    updateScoreDisplay(); // Update the score display
+    
     document.getElementById('result').innerHTML = result.is_correct
         ? `<span style="color: #69e95e">Correct!</span> 🎉`
         : `<span style="color: ##ff4f4f">Incorrect</span>. The correct pitch was <span style="color: #a362ff">${correctPitch}</span>.`;
@@ -256,3 +281,11 @@ function updateInstrument() {
 
 // Fetch instruments on page load
 document.addEventListener('DOMContentLoaded', fetchInstruments);
+
+// Initialize score on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('/get_score');
+    const data = await response.json();
+    currentScore = data.score;
+    updateScoreDisplay();
+});

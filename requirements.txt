@@ -4,3 +4,4 @@ mido
 numpy
 librosa
 soundfile
+cryptography
