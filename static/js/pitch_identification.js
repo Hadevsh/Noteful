@@ -6,7 +6,7 @@ let currentScore = 1000;
 // Update the score display
 async function updateScoreDisplay() {
     const scoreDisplay = document.getElementById('score');
-    scoreDisplay.textContent = `${currentScore} XP`;
+    scoreDisplay.textContent = `${currentScore}`;
 
     // Save the updated score
     await fetch('/save_score', {
