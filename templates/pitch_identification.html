@@ -10,6 +10,11 @@
 </head>
 <body>
     <h1>🎵 Pitch Identification</h1>
+    
+    <!-- Display score -->
+    <div class="score-display">
+        <p id="score"></p>
+    </div>
 
     <!-- Instrument/Sound selection -->
     <div id="sound-select">
@@ -17,11 +22,6 @@
         <select name="instrument" id="instrument" onchange="updateInstrument()">
             <!-- Instrument options will be dynamically populated -->
         </select>
-    </div>
-
-    <!-- Display score -->
-    <div class="score-display">
-        <p id="score"></p>
     </div>
 
     <div id="exercise">

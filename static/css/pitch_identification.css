@@ -74,3 +74,11 @@ button:hover {
     gap: 10px; /* Space between label and dropdown */
     margin: 20px; /* Reset margin */
 }
+
+#score {
+    color: #8e4ce9;
+    font-weight: 900;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+}
