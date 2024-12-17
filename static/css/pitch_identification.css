@@ -68,11 +68,11 @@ button:hover {
 }
 
 #sound-select {
-    display: flex; /* Flexbox layout */
-    align-items: center; /* Vertically align items in the center */
-    justify-content: center; /* Horizontally center the content */
-    gap: 10px; /* Space between label and dropdown */
-    margin: 20px; /* Reset margin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
 }
 
 #score {
@@ -81,4 +81,31 @@ button:hover {
     font-size: 25px;
     margin: 0;
     padding: 0;
+    position: relative;
+    border-bottom: 1px dashed #727272;
+}
+
+#score::before {
+    content: attr(data-text);
+    white-space: pre;
+    font-weight: 100;
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100%;
+    margin-right: 15px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: #3a3a3a;
+    color: #8f8f8f;
+    text-align: center;
+    display: none; /* hide by default */
+}
+
+#score:hover::before {
+    display: block;
+    cursor: pointer;
 }
