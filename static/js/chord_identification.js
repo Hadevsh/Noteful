@@ -49,3 +49,18 @@ async function submitChord() {
 
 // Sound selection
 let selectedInstrument = "piano-keys"; // Default instrument
+
+// Submit the answer using the Enter key
+const ansInput = document.getElementsByClassName("answer-input")[0];
+ansInput.addEventListener("keyup", ({key}) => {
+    if (key === "Enter") {
+        submitChord();
+    }
+})
+
+// Event listener for the Spacebar key
+document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") { // Check if the pressed key is Spacebar
+        generateChord();
+    }
+});
