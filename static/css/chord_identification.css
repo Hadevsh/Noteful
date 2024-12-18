@@ -1,0 +1,114 @@
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation-duration: 1s;
+    transition: 1s;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+.answer-input {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    color: #fff;
+    border-radius: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: 1s;
+}
+
+.answer-input:focus {
+    border: 2px solid #6200ea;
+}
+
+#volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px;
+    height: 10px;
+    margin: 20px;
+    border-radius: 5px;  
+    background: #525252;
+    outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: #5f5f5f;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#volume-slider::-webkit-slider-thumb:hover {
+    background: #751fee;
+}
+
+.pianoKeys {
+    width: 300px;
+    height: auto;
+}
+
+#visualizer {
+    border: 1px solid #575757;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#sound-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+#score {
+    color: #8e4ce9;
+    font-weight: 900;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border-bottom: 1px dashed #727272;
+}
+
+#score::before {
+    content: attr(data-text);
+    white-space: pre;
+    font-weight: 100;
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100%;
+    margin-right: 15px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: #3a3a3a;
+    color: #8f8f8f;
+    text-align: center;
+    display: none; /* hide by default */
+}
+
+#score:hover {
+    cursor: pointer;
+}
+
+#score:hover::before {
+    display: block;
+}
