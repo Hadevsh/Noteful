@@ -28,3 +28,12 @@ def generate_chord():
     sound_paths = [f"static/audio/{instrument}/{note}.wav" for note in notes]
     
     return jsonify({"chord": chord, "sound_paths": sound_paths})
+
+# Endpoint to check user input against the correct chord
+@chord_identification_bp.route('/check_chord', methods=['POST'])
+def check_chord():
+    data = request.json
+    user_chord = data.get('chord')
+    correct_chord = data.get('correct_chord')
+    is_correct = user_chord == correct_chord
+    return jsonify({"is_correct": is_correct})
