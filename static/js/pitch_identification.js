@@ -140,20 +140,20 @@ function visualizeFrequencies(audio) {
             // Map the frequency to a position on the canvas
             const barHeight = dataArray[i] / 255 * (HEIGHT - 30); // Scale height minus reserved scale area
     
-            // Color scheme: Violet and blue tones
-            const r = Math.min(163 + (barHeight / HEIGHT) * 40, 100);
-            const g = Math.max(50 - (barHeight / HEIGHT) * 30, 0);
-            const b = Math.min(200, 200 + (barHeight / HEIGHT) * 165);
-    
             // Calculate X position based on frequency (logarithmic scaling)
             const logMinFreq = Math.log10(20);   // Minimum frequency (20Hz)
             const logMaxFreq = Math.log10(10000); // Maximum frequency (10kHz)
             const logFrequency = Math.log10(frequency);
             const normalizedPosition = (logFrequency - logMinFreq) / (logMaxFreq - logMinFreq);
             const posX = normalizedPosition * WIDTH;
+
+            // Color scheme: Violet and blue tones
+            const red = 100;
+            const green = Math.max(255 - barHeight, 0);
+            const blue = 255;
     
             // Draw the bar
-            ctx.fillStyle = `rgb(${r},${g},${b})`;
+            ctx.fillStyle = `rgb(${red},${green},${blue})`;
             ctx.fillRect(posX, HEIGHT - barHeight - 30, barWidth, barHeight);
     
             // Draw connecting lines between the tops of adjacent bars
@@ -162,7 +162,7 @@ function visualizeFrequencies(audio) {
                 ctx.beginPath();
                 ctx.moveTo(previousX + barWidth / 2, previousY); // Center of the previous bar's top
                 ctx.lineTo(posX + barWidth / 2, topY); // Center of the current bar's top
-                ctx.strokeStyle = "#751fee";
+                ctx.strokeStyle = `rgba(${red},${green},${blue},0.5)`;
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }
