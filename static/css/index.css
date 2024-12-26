@@ -25,6 +25,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(46, 168, 255, 0.3), 0 0 20px rgba(46, 168, 255, 0.3), 0 0 30px rgba(46, 168, 255, 0.5);
 }
 
 .topnav img {

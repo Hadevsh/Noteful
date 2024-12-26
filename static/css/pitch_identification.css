@@ -86,6 +86,7 @@ button:hover {
     padding: 0;
     position: relative;
     border-bottom: 1px dashed #727272;
+    text-shadow: 0 0 10px rgba(46, 168, 255, 0.3), 0 0 20px rgba(46, 168, 255, 0.3), 0 0 30px rgba(46, 168, 255, 0.2);
 }
 
 #score::before {
