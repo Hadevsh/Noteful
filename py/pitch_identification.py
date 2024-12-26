@@ -1,17 +1,11 @@
 from flask import Blueprint, render_template, request, jsonify
-from cryptography.fernet import Fernet
 import random
 import os
 
+from py.encryption import save_encrypted_data, load_encrypted_data
+
 # Define the blueprint
 pitch_identification_bp = Blueprint('pitch_identification', __name__, template_folder='../templates')
-
-# Encryption key (ensure this remains consistent for decryption)
-ENCRYPTION_KEY = b'JVSTm10SsesvejoUiW2d2rtdWqC2PyBQfajQvOWl_WI='  # Replace with an actual Fernet key
-fernet = Fernet(ENCRYPTION_KEY)
-
-# File path for storing the score
-SCORE_FILE = "data/score.dat"
 
 # Available pitches
 PITCHES = ["C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", 
@@ -52,33 +46,17 @@ def get_keys():
 def get_instruments():
     return jsonify({"instruments": INSTRUMENTS})
 
-# Helper functions
-def save_encrypted_score(score):
-    """Save the encrypted score to disk."""
-    if not os.path.exists('data'):
-        os.makedirs('data')
-    encrypted_score = fernet.encrypt(str(score).encode())
-    with open(SCORE_FILE, 'wb') as file:
-        file.write(encrypted_score)
-
-def load_encrypted_score():
-    """Load and decrypt the score from disk."""
-    if not os.path.exists(SCORE_FILE):
-        return 0  # Default score if no file exists
-    with open(SCORE_FILE, 'rb') as file:
-        encrypted_score = file.read()
-    return int(fernet.decrypt(encrypted_score).decode())
-
 # Route to save the score
 @pitch_identification_bp.route('/save_score', methods=['POST'])
 def save_score():
     data = request.json
     score = data.get('score', 0)
-    save_encrypted_score(score)
+    print(score)
+    save_encrypted_data('score', score)
     return jsonify({"status": "success"})
 
 # Route to get the current score
 @pitch_identification_bp.route('/get_score', methods=['GET'])
 def get_score():
-    score = load_encrypted_score()
+    score = load_encrypted_data('score')
     return jsonify({"score": score})
