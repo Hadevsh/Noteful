@@ -92,7 +92,7 @@ button:hover {
 #score::before {
     content: attr(data-text);
     white-space: pre;
-    font-weight: 100;
+    font-weight: 500;
     font-size: 15px;
     position: absolute;
     top: 50%;
@@ -106,7 +106,14 @@ button:hover {
     background: #3a3a3a;
     color: #8f8f8f;
     text-align: center;
-    display: none; /* hide by default */
+    text-shadow: none;
+
+    /* Reset inherited properties */
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
+
+    display: none; /* Hide by default */
 }
 
 #score:hover {
@@ -116,3 +123,4 @@ button:hover {
 #score:hover::before {
     display: block;
 }
+
