@@ -51,7 +51,6 @@ def get_instruments():
 def save_score():
     data = request.json
     score = data.get('score', 0)
-    print(score)
     save_encrypted_data('score', score)
     return jsonify({"status": "success"})
 

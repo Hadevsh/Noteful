@@ -42,7 +42,6 @@ def load_encrypted_data(data_name):
         if not encrypted_data:  # Handle empty files
             return None
         decrypted_data = fernet.decrypt(encrypted_data).decode()
-        print(decrypted_data)
         existing_data = json.loads(decrypted_data)
     
     # Return the requested variable
