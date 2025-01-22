@@ -64,3 +64,31 @@ document.addEventListener("keydown", function(event) {
         generateChord();
     }
 });
+
+// Display chords to choose from
+async function chordsChoose() {
+    const response = await fetch('/get_chords');
+    const data = await response.json();
+    const chords = data.chords;
+
+    // Group chords by their "octave"
+    const groupedChords = chords.reduce((acc, chord) => {
+        const octave = chord.slice(-1); // Get the last character (octave)
+        if (!acc[octave]) {
+            acc[octave] = [];
+        }
+        acc[octave].push(chord);
+        return acc;
+    }, {});
+
+    // Create the HTML content with new lines for each octave
+    const chordsDisplay = Object.values(groupedChords)
+        .map(octaveKeys => octaveKeys.join(', '))
+        .join('<br>');
+
+    // Display the grouped keys in the 'chordsChoose' element
+    document.getElementById('chordsChoose').innerHTML = chordsDisplay;
+}
+
+// Call the function to display the keys when the page loads
+document.addEventListener('DOMContentLoaded', chordsChoose);

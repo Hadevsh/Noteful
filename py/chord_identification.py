@@ -49,3 +49,12 @@ def check_chord():
     correct_chord = data.get('correct_chord')
     is_correct = user_chord == correct_chord
     return jsonify({"is_correct": is_correct})
+
+@chord_identification_bp.route('/get_chords', methods=['GET'])
+def get_keys():
+    avaiable_chords = []
+    for chord in list(CHORDS.items()):
+        avaiable_chords.append(chord[0])
+    return jsonify({"chords": avaiable_chords})
+
+print(list(CHORDS.items()))
