@@ -9,7 +9,19 @@ chord_identification_bp = Blueprint('chord_identification', __name__, template_f
 # Avaiable chords
 CHORDS = {
     "Cmaj": ["C5", "E5", "G5"],
-    "Cmin": ["C5", "D#5", "G5"]
+    
+    "Cmin": ["C5", "D#5", "G5"],
+    "C#min": ["C#5", "E5", "G#5"],
+    "Dmin": ["D5", "F5", "A5"],
+    "D#min": ["D#5", "F#5", "A#5"],
+    "Emin": ["E5", "G5", "B5"],
+    "Fmin": ["F5", "G#5", "C6"],
+    "F#min": ["F#5", "A5", "C#6"],
+    "Gmin": ["G5", "A#5", "D6"],
+    "G#min": ["G#5", "B5", "D#6"],
+    "Amin": ["A5", "C6", "E6"],
+    "A#min": ["A#5", "C#6", "F6"],
+    "Bmin": ["B5", "D6", "F#6"]
 }
 chord, notes = random.choice(list(CHORDS.items()))
 
