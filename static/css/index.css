@@ -1,22 +1,19 @@
 .topnav {
-    border-radius: 15px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
     margin-bottom: -50px;
     margin-top: -25px;
+    gap: 60px
 }
 
 .topnav a {
     color: #f2f2f2;
-    padding: 20px;
-    text-decoration: none;
     font-size: 20px;
     margin-top: -20px;
-    transition: 0.5s;
-    width: 150px;
+    width: 7%;
+    transition: font-weight 0.3s, text 0.3s;
 }
 
 .topnav a:hover {
