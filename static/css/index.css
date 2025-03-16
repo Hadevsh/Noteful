@@ -1,4 +1,4 @@
-.topnav {
+.top-nav {
     display: flex;
     align-items: center;
     text-align: center;
@@ -8,7 +8,7 @@
     gap: 60px
 }
 
-.topnav a {
+.top-nav a {
     color: #f2f2f2;
     font-size: 20px;
     margin-top: -20px;
@@ -16,7 +16,7 @@
     transition: font-weight 0.3s, text 0.3s;
 }
 
-.topnav a:hover {
+.top-nav a:hover {
     font-weight: 900;
     background: -webkit-linear-gradient(0.1turn, #2ea8ff, #8a37ff);
     background-clip: text;
@@ -25,25 +25,27 @@
     text-shadow: 0 0 10px rgba(46, 168, 255, 0.3), 0 0 20px rgba(46, 168, 255, 0.3), 0 0 30px rgba(46, 168, 255, 0.5);
 }
 
-.topnav img {
+.top-nav img {
     width: 400px;
     height: 100%;
 }
 
-.pagesList p {
-    margin-top: 50px;
+.pages-list {
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
     font-size: 25px;
+    gap: 10px
 }
 
-.pagesList a {
-    text-decoration: none;
-    color: #b8b8b8;
+.pages-list p {
+    margin-bottom: 10px;
+}
+
+.pages-list a {
     font-size: 20px;
-    transition: 0.5s;
-}
-
-.pagesList a:hover {
-    color: #a362ff;
 }
 
 /* Interactive piano */
@@ -102,8 +104,3 @@
 .black-key:nth-child(7) { left: 330px; }
 .black-key:nth-child(9) { left: 418px; }
 .black-key:nth-child(11) { left: 506px; }
-
-.pagesList a {
-    display: block;
-    margin-bottom: 15px;
-}
