@@ -21,6 +21,7 @@
     margin: 10px;
 }
 
+/* Volume slider styling */
 #volume-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -47,7 +48,7 @@
     background: #751fee;
 }
 
-.pianoKeys {
+.piano-keys {
     width: 300px;
     height: auto;
 }
@@ -55,7 +56,7 @@
 #visualizer {
     border: 1px solid #575757;
     border-radius: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px;
 }
 
