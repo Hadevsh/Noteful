@@ -9,8 +9,12 @@
 .top-nav a span {
     position: fixed;
     left: 20px;
-    top: 20px;
+    top: 25px;
     font-size: 50px;
+}
+
+#exercise button {
+    margin: 10px;
 }
 
 .answer-input {
