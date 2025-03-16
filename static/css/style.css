@@ -58,6 +58,20 @@ button:hover {
     background-color: #5100c3;
 }
 
+input[type=text] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input[type=text]:focus {
+    border: 1px solid #8d3bff;
+}
+
 /* Footer */
 footer {
     display: flex;

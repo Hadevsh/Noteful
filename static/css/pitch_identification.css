@@ -17,19 +17,8 @@
     margin: 10px;
 }
 
-.answer-input {
-    padding: 10px;
+#exercise input {
     margin: 10px;
-    border: 2px solid #ccc;
-    color: #fff;
-    border-radius: 15px;
-    box-sizing: border-box;
-    outline: none;
-    transition: 1s;
-}
-
-.answer-input:focus {
-    border: 2px solid #6200ea;
 }
 
 #volume-slider {
