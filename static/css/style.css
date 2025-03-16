@@ -44,6 +44,21 @@ a:hover {
     color: #a362ff;
 }
 
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #6200ea;
+    color: white;
+    border: 1px solid #6200ea;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #5100c3;
+}
+
 /* Footer */
 footer {
     display: flex;
