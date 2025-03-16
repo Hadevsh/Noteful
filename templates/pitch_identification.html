@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noteful | Pitch Identification</title>
     <link rel="icon" type="image/x-icon" href="/static/images/icon.ico">
+
     <link rel="stylesheet" href="/static/css/style.css"> <!-- Base styling -->
     <link rel="stylesheet" href="/static/css/pitch_identification.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home"/> <!-- Icons -->
 </head>
 <body>
-    <h1>🎵 Pitch Identification</h1>
+    <div class="top-nav">
+        <a href="/templates/index.html">
+            <span class="material-symbols-outlined">home</span>
+        </a>
+        <h1>🎵 Pitch Identification</h1>
+    </div>
+    
     
     <!-- Display score -->
     <div class="score-display">
         <p style="font-weight: 900;"><span data-text="-10 Generating a pich&#xa;+50 Correct&#xa;-60 Incorrect" id="score"></span> XP</p>
     </div>
-
+    
     <!-- Instrument/Sound selection -->
     <div id="sound-select">
         <p>Sound: </p>
