@@ -109,39 +109,6 @@
 .black-key:nth-child(9) { left: 418px; }
 .black-key:nth-child(11) { left: 506px; }
 
-/* Footer */
-.footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px;
-}
-
-.footer .name {
-    margin-top: -15px;
-    padding: 0;
-}
-
-.footer .logo img {
-    width: 100px;
-    height: auto;
-    border-radius: 30%;
-    border: 2px solid #8f8f8f;
-}
-
-.footer a {
-    color: #8f8f8f;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    transition: 0.5s;
-}
-
-.footer a:hover {
-    color: #a362ff;
-}
-
 .pagesList a {
     display: block;
     margin-bottom: 15px;
