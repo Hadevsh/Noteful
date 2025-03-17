@@ -58,6 +58,7 @@
 #piano-keys-ref {
     font-size: 30px;
     margin-top: -20px;
+    transition: transform 0.6s ease;
 }
 
 #visualizer {

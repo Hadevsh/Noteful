@@ -93,8 +93,10 @@ const piano_keys = document.getElementById("piano-keys");
 piano_keys_ref.addEventListener("click", () => {
     if (piano_keys.style.display === "none") {
         piano_keys.style.display = "inline";
+        piano_keys_ref.style.transform = "rotate(180deg)";
     } else {
         piano_keys.style.display = "none";
+        piano_keys_ref.style.transform = "rotate(0deg)";
     }
 })
 
