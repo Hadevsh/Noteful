@@ -24,7 +24,6 @@
     <div class="score-display">
         <p style="font-weight: 900;"><span data-text="-10 Generating a pich&#xa;+50 Correct&#xa;-60 Incorrect" id="score"></span> XP</p>
     </div>
-
     
     <!-- Piano keys image -->
     <!-- <img class="piano-keys" src="/static/images/piano-keys.png"><br> -->
@@ -60,7 +59,7 @@
     <!-- Volume control -->
     <label for="volume-slider">Volume: </label> 
     <input value="0.5" type="range" id="volume-slider" min="0" max="1" step="0.01">
-    <span id="volume-display">50%</span>
+    <span id="volume-display" style="position: fixed; margin-top: 14px;">50%</span>
 
     <script type="module" src="/static/js/utils.js"></script>
     <script type="module" src="/static/js/pitch_identification.js"></script>
