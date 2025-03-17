@@ -12,8 +12,8 @@
     color: #f2f2f2;
     font-size: 20px;
     margin-top: -20px;
-    width: 7%;
-    transition: font-weight 0.3s, text 0.3s;
+    min-width: 7%;
+    transition: font-weight 0.3s;
 }
 
 .top-nav a:hover {
@@ -73,7 +73,8 @@
     cursor: pointer;
     position: relative;
     user-select: none;
-    transition: 0.5s;
+    transition: background 0.3s;
+    
 }
 
 .black-key {
@@ -87,7 +88,7 @@
     user-select: none;
     z-index: 10;
     margin-top: 10px;
-    transition: 0.5s;
+    transition: background 0.3s;
 }
 
 .white-key:hover {
