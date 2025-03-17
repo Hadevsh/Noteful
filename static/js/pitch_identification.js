@@ -86,6 +86,18 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+// Display piano keys reference
+const piano_keys_ref = document.getElementById("piano-keys-ref");
+const piano_keys = document.getElementById("piano-keys");
+
+piano_keys_ref.addEventListener("click", () => {
+    if (piano_keys.style.display === "none") {
+        piano_keys.style.display = "inline";
+    } else {
+        piano_keys.style.display = "none";
+    }
+})
+
 // Display keys to choose from
 async function keysChoose() {
     const response = await fetch('/get_keys');

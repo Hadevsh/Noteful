@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/css/style.css"> <!-- Base styling -->
     <link rel="stylesheet" href="/static/css/pitch_identification.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home"/> <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/> <!-- Icons -->
 </head>
 <body>
     <div class="top-nav">
@@ -24,9 +24,6 @@
     <div class="score-display">
         <p style="font-weight: 900;"><span data-text="-10 Generating a pich&#xa;+50 Correct&#xa;-60 Incorrect" id="score"></span> XP</p>
     </div>
-    
-    <!-- Piano keys image -->
-    <!-- <img class="piano-keys" src="/static/images/piano-keys.png"><br> -->
 
     <!-- Keys to choose from -->
     <!-- <div style="margin: 20px; margin-top: -10px;">
@@ -59,7 +56,11 @@
     <!-- Volume control -->
     <label for="volume-slider">Volume: </label> 
     <input value="0.5" type="range" id="volume-slider" min="0" max="1" step="0.01">
-    <span id="volume-display" style="position: fixed; margin-top: 14px;">50%</span>
+    <span id="volume-display" style="position: fixed; margin-top: 14px;">50%</span><br>
+
+    <!-- Piano keys image -->
+    <p><a id="piano-keys-ref" class="material-symbols-outlined">arrow_drop_down</a> Piano Keys Reference</p>
+    <img id="piano-keys" src="/static/images/piano-keys.png">
 
     <footer class="footer">
         <img src="/static/images/icon.png" alt="Logo" class="footer-logo-img">

@@ -48,9 +48,16 @@
     background: #751fee;
 }
 
-.piano-keys {
-    width: 300px;
+#piano-keys {
+    display: none;
+    width: 500px;
     height: auto;
+    margin-top: -20px;
+}
+
+#piano-keys-ref {
+    font-size: 30px;
+    margin-top: -20px;
 }
 
 #visualizer {
