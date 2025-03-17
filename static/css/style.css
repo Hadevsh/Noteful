@@ -66,10 +66,11 @@ select {
     border-radius: 10px;
     box-sizing: border-box;
     outline: none;
-    transition: border 0.3s;
+    transition: border 0.3s, color 0.4s;
 }
 
 select:focus {
+    color: #ccc;
     border: 1px solid #8d3bff;
 }
 
