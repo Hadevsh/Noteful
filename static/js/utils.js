@@ -93,7 +93,7 @@ export function visualizeFrequencies(audio) {
             const barHeight = dataArray[i] / 255 * (HEIGHT - 30); // Scale height minus reserved scale area
     
             // Calculate X position based on frequency (logarithmic scaling)
-            const logMinFreq = Math.log10(20);   // Minimum frequency (20Hz)
+            const logMinFreq = Math.log10(40);   // Minimum frequency (20Hz)
             const logMaxFreq = Math.log10(10000); // Maximum frequency (10kHz)
             const logFrequency = Math.log10(frequency);
             const normalizedPosition = (logFrequency - logMinFreq) / (logMaxFreq - logMinFreq);
