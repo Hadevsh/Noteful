@@ -87,7 +87,7 @@ document.addEventListener("keydown", function(event) {
 });
 
 // Display piano keys reference
-const piano_keys_ref = document.getElementById("piano-keys-ref");
+const piano_keys_ref = document.getElementById("piano-keys-drop");
 const piano_keys = document.getElementById("piano-keys");
 piano_keys.style.display = "none";
 
